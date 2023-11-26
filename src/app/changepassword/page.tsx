@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 import toast from "react-hot-toast";
 import { Toaster } from "react-hot-toast";
 
-const page = () => {
+const ChangePassword = () => {
   const [password, setPassword] = useState({
     password: "",
     confirmPassword: "",
@@ -107,4 +107,4 @@ const page = () => {
     </>
   );
 };
-export default page;
+export default ChangePassword;
