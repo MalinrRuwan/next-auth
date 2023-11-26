@@ -3,6 +3,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 
 
 const ForgotPassword = () => {
@@ -16,14 +18,20 @@ const ForgotPassword = () => {
     },[email])
     const onSubmit = async() => { 
         try {
+            setLoading(true)
             await axios.post('/api/users/forgotPassword/sendToken', {email})
+            toast.success("Email Sent Check inbox")
             
         } catch (error : any) {
             console.log (error.message)
         }
+        finally{
+          setLoading(false)
+        }
 
     }
-  return (
+  return (<>
+  <div><Toaster/></div>
     <div className="flex flex-col items-center justify-center min-h-screen py-2">
       <h1 className="text-3xl font-sans font-extrabold my-5">Forgot Password</h1>
       <hr></hr>
@@ -48,6 +56,7 @@ const ForgotPassword = () => {
         {loading ? "Loading" : "Submit"}
       </button>
     </div>
+  </>
   );
 }
 export default ForgotPassword
