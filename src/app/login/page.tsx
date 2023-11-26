@@ -73,7 +73,7 @@ export default function LoginPage() {
         {loading ? "Loading"  : "Login"}
       </button>
       <Link href="/signup" className="py-3 underline hover:opacity-80">
-        Click here if you haven't signed up
+        Click here if you have not signed up
       </Link>
       <Link href="/forgotpassword" className="py-2 underline hover:opacity-80 text-xs text-slate-700">
         Forgot password?
